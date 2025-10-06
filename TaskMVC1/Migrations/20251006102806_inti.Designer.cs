@@ -11,8 +11,8 @@ using TaskMVC1.Data;
 namespace TaskMVC1.Migrations
 {
     [DbContext(typeof(ApplecationDbContext))]
-    [Migration("20251004121719_insert")]
-    partial class insert
+    [Migration("20251006102806_inti")]
+    partial class inti
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

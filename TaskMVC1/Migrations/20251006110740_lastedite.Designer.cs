@@ -11,8 +11,8 @@ using TaskMVC1.Data;
 namespace TaskMVC1.Migrations
 {
     [DbContext(typeof(ApplecationDbContext))]
-    [Migration("20251004115200_inti")]
-    partial class inti
+    [Migration("20251006110740_lastedite")]
+    partial class lastedite
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,13 +32,34 @@ namespace TaskMVC1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categorys");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Electronics"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Books"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Clothing"
+                        });
                 });
 #pragma warning restore 612, 618
         }
